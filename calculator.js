@@ -1,6 +1,23 @@
-const calculator = () => {
-    const greet = "Hello! \nSelect the option you wish to use \n1: Sum \n2: Subtraction \n3: Multiplication \n4: Division";
-    const input = prompt(greet);
-    alert(`Your input was ${input}`);
+const functions = {
+    1: (firstNumber, secondNumber) => firstNumber + secondNumber, 
+    2: (firstNumber, secondNumber) => firstNumber - secondNumber, 
+    3: (firstNumber, secondNumber) => firstNumber * secondNumber, 
+    4: (firstNumber, secondNumber) => firstNumber / secondNumber
+};
+
+const calculate = (firstNumber, secondNumber, func) => func(firstNumber, secondNumber);
+
+const menu = () => {
+    const options = ['1', '2', '3', '4'];
+    let input;
+    do {
+        const greet = "Hello! \nSelect the option you wish to use \n1: Sum \n2: Subtraction \n3: Multiplication \n4: Division";
+        input = prompt(greet);
+    } while (!options.includes(input));
+    let firstNumber = prompt('Type your first number');
+    firstNumber = Number(firstNumber);
+    let secondNumber = prompt('Type your second number');
+    secondNumber = Number(secondNumber);
+    alert(`The result is ${calculate(firstNumber, secondNumber, functions[input])}`);
 }
 
