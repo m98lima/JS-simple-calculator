@@ -7,6 +7,12 @@ const functions = {
 
 const calculate = (firstNumber, secondNumber, func) => func(firstNumber, secondNumber);
 
+const updateResult = (result) => {
+    const htmlTag = document.querySelector(".result");
+    let resultHTML = `<br>The result of your calculation is ${result}`;
+    htmlTag.innerHTML = resultHTML;
+}
+
 const menu = () => {
     const options = ['1', '2', '3', '4'];
     let input;
@@ -24,7 +30,8 @@ const menu = () => {
         secondNumber = prompt('Type your second number');
     } while (isNaN(secondNumber));
     secondNumber = Number(secondNumber);
-    alert(`The result is ${calculate(firstNumber, secondNumber, functions[input])}`);
+    updateResult(calculate(firstNumber, secondNumber, functions[input]));
+    //alert(`The result is ${calculate(firstNumber, secondNumber, functions[input])}`);
     return 'Calculation completed';
 }
 
