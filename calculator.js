@@ -14,10 +14,17 @@ const menu = () => {
         const greet = "Hello! \nSelect the option you wish to use \n1: Sum \n2: Subtraction \n3: Multiplication \n4: Division";
         input = prompt(greet);
     } while (!options.includes(input));
-    let firstNumber = prompt('Type your first number');
+    let firstNumber;
+    do {
+        firstNumber = prompt('Type your first number');
+    } while (isNaN(firstNumber));
     firstNumber = Number(firstNumber);
-    let secondNumber = prompt('Type your second number');
+    let secondNumber 
+    do {
+        secondNumber = prompt('Type your second number');
+    } while (isNaN(secondNumber));
     secondNumber = Number(secondNumber);
     alert(`The result is ${calculate(firstNumber, secondNumber, functions[input])}`);
+    return 'Calculation completed';
 }
 
